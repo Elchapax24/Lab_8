@@ -2,7 +2,7 @@
 
 <%= @appointment.date.strftime("%B %d, %Y") %>
 <p><strong>Reason:</strong> <%= @appointment.reason %></p>
-<p><strong>Status:</strong> <%= ["Scheduled", "In Progress", "Completed", "Cancelled"][@appointment.status] %>
+<p><strong>Status:</strong> <p><strong>Status:</strong> <%= @appointment.status.titleize %></p>
 
 <p>
   <strong>Pet:</strong>

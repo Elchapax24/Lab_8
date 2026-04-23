@@ -84,7 +84,7 @@ appt1 = Appointment.create!(
   vet: vet1,
   date: Time.now + 1.day,
   reason: "Check-up",
-  status: 0
+  status: :scheduled
 )
 
 appt2 = Appointment.create!(
@@ -92,7 +92,7 @@ appt2 = Appointment.create!(
   vet: vet1,
   date: Time.now,
   reason: "Vaccination",
-  status: 1
+  status: :in_progress
 )
 
 appt3 = Appointment.create!(
@@ -100,7 +100,7 @@ appt3 = Appointment.create!(
   vet: vet2,
   date: Time.now - 1.day,
   reason: "Injury",
-  status: 2
+  status: :completed
 )
 
 appt4 = Appointment.create!(
@@ -108,7 +108,7 @@ appt4 = Appointment.create!(
   vet: vet2,
   date: Time.now + 2.days,
   reason: "Skin issue",
-  status: 0
+  status: :scheduled
 )
 
 appt5 = Appointment.create!(
@@ -116,8 +116,9 @@ appt5 = Appointment.create!(
   vet: vet1,
   date: Time.now - 2.days,
   reason: "General check",
-  status: 3
+  status: :cancelled
 )
+
 appointments = Appointment.all
 
 Treatment.create!(

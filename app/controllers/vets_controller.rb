@@ -1,6 +1,6 @@
 class VetsController < ApplicationController
   def index
-    @vets = Vet.all
+    @vets = Vet.includes(:appointments)
   end
 
   def show
