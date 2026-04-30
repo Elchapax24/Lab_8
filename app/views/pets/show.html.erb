@@ -5,6 +5,12 @@
 <p><strong>Breed:</strong> <%= @pet.breed %></p>
 <p><strong>Date of Birth:</strong> <%= @pet.date_of_birth %></p>
 <p><strong>Weight:</strong> <%= @pet.weight %></p>
+<%= link_to "Edit", edit_pet_path(@pet), class: "btn btn-warning" %>
+
+<%= button_to "Delete", pet_path(@pet),
+      method: :delete,
+      data: { turbo_confirm: "Are you sure?" },
+      class: "btn btn-danger" %>
 
 <p>
   <strong>Owner:</strong>

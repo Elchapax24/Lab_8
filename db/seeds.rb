@@ -25,7 +25,7 @@ owners = Owner.all
 
 owners[0].pets.create!(
   name: "Firulais",
-  species: "Dog",
+  species: "dog",
   breed: "Labrador",
   date_of_birth: "2020-05-10",
   weight: 25.5
@@ -33,7 +33,7 @@ owners[0].pets.create!(
 
 owners[0].pets.create!(
   name: "Michi",
-  species: "Cat",
+  species: "cat",
   breed: "Siames",
   date_of_birth: "2021-03-15",
   weight: 4.2
@@ -41,7 +41,7 @@ owners[0].pets.create!(
 
 owners[1].pets.create!(
   name: "Bunny",
-  species: "Rabbit",
+  species: "rabbit",
   breed: "Mini Lop",
   date_of_birth: "2022-01-01",
   weight: 2.1
@@ -49,15 +49,15 @@ owners[1].pets.create!(
 
 owners[2].pets.create!(
   name: "Rocky",
-  species: "Dog",
-  breed: "Bulldog",
+  species: "dog",
+  breed: "bulldog",
   date_of_birth: "2019-07-20",
   weight: 18.0
 )
 
 owners[2].pets.create!(
   name: "Luna",
-  species: "Cat",
+  species: "cat",
   breed: "Persa",
   date_of_birth: "2020-11-11",
   weight: 3.8

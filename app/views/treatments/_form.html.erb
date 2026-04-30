@@ -1,0 +1,32 @@
+<%= form_with(model: [@appointment, @treatment]) do |form| %>
+
+  <%= render "shared/error_messages", object: @treatment %>
+
+  <div class="mb-3">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :medication %>
+    <%= form.text_field :medication, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :dosage %>
+    <%= form.text_field :dosage, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :notes %>
+    <%= form.text_area :notes, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :administered_at %>
+    <%= form.datetime_field :administered_at, class: "form-control" %>
+  </div>
+
+  <%= form.submit class: "btn btn-primary" %>
+
+<% end %>

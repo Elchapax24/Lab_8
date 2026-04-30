@@ -1,0 +1,41 @@
+
+
+<%= render "shared/error_messages", object: @pet %>
+
+<%= form_with(model: @pet) do |form| %>
+
+  <div class="mb-3">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :species %>
+    <%= form.select :species,
+          ["dog", "cat", "rabbit", "bird", "reptile", "other"],
+          {}, class: "form-select" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :breed %>
+    <%= form.text_field :breed, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :date_of_birth %>
+    <%= form.date_field :date_of_birth, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :weight %>
+    <%= form.number_field :weight, step: 0.1, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :owner_id, "Owner" %>
+    <%= form.collection_select :owner_id, Owner.all, :id, :first_name, {}, class: "form-select" %>
+  </div>
+
+  <%= form.submit class: "btn btn-primary" %>
+
+<% end %>

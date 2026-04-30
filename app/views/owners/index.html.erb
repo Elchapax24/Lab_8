@@ -1,24 +1,31 @@
 <h1>Owners</h1>
 
-<table class="table table-striped">
+<%= link_to "New Owner", new_owner_path, class: "btn btn-primary mb-3" %>
+
+<table class="table">
   <thead>
     <tr>
-      <th>Full Name</th>
+      <th>Name</th>
       <th>Email</th>
-      <th>Phone</th>
-      <th>Number of Pets</th>
+      <th>Actions</th>
     </tr>
   </thead>
 
   <tbody>
     <% @owners.each do |owner| %>
       <tr>
-        <td>
-          <%= link_to "#{owner.first_name} #{owner.last_name}", owner_path(owner) %>
-        </td>
+        <td><%= owner.first_name %> <%= owner.last_name %></td>
         <td><%= owner.email %></td>
-        <td><%= owner.phone %></td>
-        <%= owner.pets.size %>
+
+        <td>
+          <%= link_to "Show", owner_path(owner), class: "btn btn-sm btn-info" %>
+          <%= link_to "Edit", edit_owner_path(owner), class: "btn btn-sm btn-warning" %>
+
+          <%= button_to "Delete", owner_path(owner),
+                method: :delete,
+                data: { turbo_confirm: "Are you sure?" },
+                class: "btn btn-sm btn-danger" %>
+        </td>
       </tr>
     <% end %>
   </tbody>

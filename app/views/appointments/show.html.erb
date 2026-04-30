@@ -1,4 +1,13 @@
 <h1>Appointment Details</h1>
+<%= link_to "New Treatment",
+    new_appointment_treatment_path(@appointment),
+    class: "btn btn-primary mb-3" %>
+<%= link_to "Edit", edit_appointment_path(@appointment), class: "btn btn-warning" %>
+
+<%= button_to "Delete", appointment_path(@appointment),
+      method: :delete,
+      data: { turbo_confirm: "Are you sure?" },
+      class: "btn btn-danger" %>
 
 <%= @appointment.date.strftime("%B %d, %Y") %>
 <p><strong>Reason:</strong> <%= @appointment.reason %></p>
@@ -23,7 +32,17 @@
       <%= treatment.medication %> -
       <%= treatment.dosage %> -
       <%= treatment.administered_at.strftime("%B %d, %Y") %><br>
-      <%= treatment.notes %>
+      <%= treatment.notes %><br>
+
+      <%= link_to "Edit",
+          edit_appointment_treatment_path(@appointment, treatment),
+          class: "btn btn-sm btn-warning" %>
+
+      <%= button_to "Delete",
+          appointment_treatment_path(@appointment, treatment),
+          method: :delete,
+          data: { turbo_confirm: "Are you sure?" },
+          class: "btn btn-sm btn-danger" %>
     </li>
   <% end %>
 </ul>
