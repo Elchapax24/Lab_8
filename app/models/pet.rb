@@ -1,7 +1,7 @@
 class Pet < ApplicationRecord
   belongs_to :owner
   has_many :appointments
-
+  has_one_attached :photo
   validates :name, presence: true
 
   validates :species, presence: true,
@@ -14,8 +14,21 @@ class Pet < ApplicationRecord
                      numericality: { greater_than: 0 }
 
   validates :owner, presence: true
+  validate :acceptable_photo
 
   private
+
+  def acceptable_photo
+  return unless photo.attached?
+
+  unless photo.content_type.in?(%w[image/jpeg image/png image/webp])
+    errors.add(:photo, "must be a JPEG, PNG, or WebP")
+  end
+
+  if photo.byte_size > 5.megabytes
+    errors.add(:photo, "is too large (maximum is 5 MB)")
+  end
+end
 
   def date_of_birth_cannot_be_in_future
     return if date_of_birth.blank?

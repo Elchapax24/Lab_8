@@ -32,7 +32,7 @@
       <%= treatment.medication %> -
       <%= treatment.dosage %> -
       <%= treatment.administered_at.strftime("%B %d, %Y") %><br>
-      <%= treatment.notes %><br>
+      <%= treatment.clinical_notes %><br>
 
       <%= link_to "Edit",
           edit_appointment_treatment_path(@appointment, treatment),

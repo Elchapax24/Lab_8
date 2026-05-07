@@ -5,6 +5,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th>Photo</th>
       <th>Name</th>
       <th>Species</th>
       <th>Owner</th>
@@ -13,21 +14,34 @@
   </thead>
 
   <tbody>
-    <% @pets.each do |pet| %>
-      <tr>
-        <td><%= link_to pet.name, pet_path(pet) %></td>
-        <td><%= pet.species %></td>
-        <td><%= pet.owner.first_name %></td>
+  <% @pets.each do |pet| %>
+    <tr>
 
-        <td>
-          <%= link_to "Edit", edit_pet_path(pet), class: "btn btn-sm btn-warning" %>
+      <td>
+        <% if pet.photo.attached? %>
+          <%= image_tag pet.photo.variant(resize_to_fill: [60, 60]),
+              class: "rounded" %>
+        <% else %>
+          <div class="bg-light border rounded"
+              style="width: 60px; height: 60px;">
+          </div>
+        <% end %>
+      </td>
 
-          <%= button_to "Delete", pet_path(pet),
-                method: :delete,
-                data: { turbo_confirm: "Are you sure?" },
-                class: "btn btn-sm btn-danger" %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
+      <td><%= link_to pet.name, pet_path(pet) %></td>
+      <td><%= pet.species %></td>
+      <td><%= pet.owner.first_name %></td>
+
+      <td>
+        <%= link_to "Edit", edit_pet_path(pet), class: "btn btn-sm btn-warning" %>
+
+        <%= button_to "Delete", pet_path(pet),
+              method: :delete,
+              data: { turbo_confirm: "Are you sure?" },
+              class: "btn btn-sm btn-danger" %>
+      </td>
+
+    </tr>
+  <% end %>
+</tbody>
 </table>

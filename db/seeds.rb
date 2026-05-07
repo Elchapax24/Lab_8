@@ -23,7 +23,7 @@ Owner.create!(
 )
 owners = Owner.all
 
-owners[0].pets.create!(
+pet1 = owners[0].pets.create!(
   name: "Firulais",
   species: "dog",
   breed: "Labrador",
@@ -31,7 +31,7 @@ owners[0].pets.create!(
   weight: 25.5
 )
 
-owners[0].pets.create!(
+pet2 = owners[0].pets.create!(
   name: "Michi",
   species: "cat",
   breed: "Siames",
@@ -39,7 +39,7 @@ owners[0].pets.create!(
   weight: 4.2
 )
 
-owners[1].pets.create!(
+pet3 = owners[1].pets.create!(
   name: "Bunny",
   species: "rabbit",
   breed: "Mini Lop",
@@ -47,7 +47,7 @@ owners[1].pets.create!(
   weight: 2.1
 )
 
-owners[2].pets.create!(
+pet4 = owners[2].pets.create!(
   name: "Rocky",
   species: "dog",
   breed: "bulldog",
@@ -55,12 +55,30 @@ owners[2].pets.create!(
   weight: 18.0
 )
 
-owners[2].pets.create!(
+pet5 = owners[2].pets.create!(
   name: "Luna",
   species: "cat",
   breed: "Persa",
   date_of_birth: "2020-11-11",
   weight: 3.8
+)
+
+pet1.photo.attach(
+  io: File.open(Rails.root.join("db/seeds/pets/dog.jpg")),
+  filename: "dog.jpg",
+  content_type: "image/jpeg"
+)
+
+pet2.photo.attach(
+  io: File.open(Rails.root.join("db/seeds/pets/cat.jpg")),
+  filename: "cat.jpg",
+  content_type: "image/jpeg"
+)
+
+pet3.photo.attach(
+  io: File.open(Rails.root.join("db/seeds/pets/rabbit.jpg")),
+  filename: "rabbit.jpg",
+  content_type: "image/jpeg"
 )
 vet1 = Vet.create!(
   first_name: "Ana",
@@ -126,7 +144,7 @@ Treatment.create!(
   name: "Vaccine",
   medication: "Rabies Vaccine",
   dosage: "1 dose",
-  notes: "Administered successfully",
+  clinical_notes: "Administered successfully",
   administered_at: Time.now
 )
 
@@ -135,7 +153,7 @@ Treatment.create!(
   name: "Surgery",
   medication: "Anesthesia",
   dosage: "Standard",
-  notes: "Successful operation",
+  clinical_notes: "Successful operation",
   administered_at: Time.now
 )
 
@@ -144,7 +162,7 @@ Treatment.create!(
   name: "Pain Relief",
   medication: "Ibuprofen",
   dosage: "2x daily",
-  notes: "Post-surgery care",
+  clinical_notes: "Post-surgery care",
   administered_at: Time.now
 )
 
@@ -153,7 +171,7 @@ Treatment.create!(
   name: "Check-up",
   medication: "None",
   dosage: "N/A",
-  notes: "Healthy",
+  clinical_notes: "Healthy",
   administered_at: Time.now
 )
 
@@ -162,6 +180,6 @@ Treatment.create!(
   name: "Follow-up",
   medication: "Antibiotics",
   dosage: "5 days",
-  notes: "Recovery ongoing",
+  clinical_notes: "Recovery ongoing",
   administered_at: Time.now
 )
