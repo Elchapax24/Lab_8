@@ -1,24 +1,37 @@
-# README
+For the setup you must need to execute the following commands on your terminal
+Install gems:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+```bash
+bundle install
+```
+then you have to set up the database executing
+```bash
+bin/rails db:setup
+```
+for view the app you must acces to the rails server envoirment executing
+'rails server' in the unbtutu terminal
+and visiting http://localhost:3000 on your browser
 
-Things you may want to cover:
+This project requires `libvips` for Active Storage image variants.
 
-* Ruby version
+### Ubuntu / Debian
 
-* System dependencies
+```bash
+sudo apt install libvips
+```
 
-* Configuration
+### Arch Linux
 
-* Database creation
+```bash
+sudo pacman -S libvips
+```
 
-* Database initialization
+### macOS
 
-* How to run the test suite
+```bash
+brew install vips
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+Additional note:
+The program was created on a university computer where "libvips" could not be installed, so the thumbnail images could not be tested. Additionally, cache files such as tmp, vendor, and log were deleted because the program size exceeded GitHub's limit. It was not possible to retest the program to verify that it would still function without these files, but it is likely that, being cache files, it will continue to work.
 
-* Deployment instructions
-
-* ...
