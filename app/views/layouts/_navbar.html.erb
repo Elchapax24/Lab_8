@@ -1,5 +1,28 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-3">
   <a class="navbar-brand text-white" href="/">VetClinic</a>
+  <% if user_signed_in? %>
+
+  <span class="navbar-text me-3">
+    <%= current_user.first_name %>
+    <%= current_user.last_name %>
+  </span>
+
+  <%= button_to "Sign out",
+        destroy_user_session_path,
+        method: :delete,
+        class: "btn btn-outline-danger btn-sm" %>
+
+<% else %>
+
+  <%= link_to "Sign in",
+        new_user_session_path,
+        class: "btn btn-outline-primary me-2" %>
+
+  <%= link_to "Sign up",
+        new_user_registration_path,
+        class: "btn btn-primary" %>
+
+<% end %>
 
   <div class="navbar-nav">
     <%= link_to "Owners", owners_path, class: "nav-link text-white" %>
@@ -7,4 +30,5 @@
     <%= link_to "Vets", vets_path, class: "nav-link text-white" %>
     <%= link_to "Appointments", appointments_path, class: "nav-link text-white" %>
   </div>
+  
 </nav>

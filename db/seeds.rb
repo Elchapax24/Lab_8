@@ -183,3 +183,30 @@ Treatment.create!(
   clinical_notes: "Recovery ongoing",
   administered_at: Time.now
 )
+
+User.create!(
+  first_name: "Admin",
+  last_name: "User",
+  email: "admin@vetclinic.com",
+  password: "password123",
+  password_confirmation: "password123",
+  role: :admin
+)
+
+User.create!(
+  first_name: "Vet",
+  last_name: "Doctor",
+  email: "vet@vetclinic.com",
+  password: "password123",
+  password_confirmation: "password123",
+  role: :vet
+)
+
+User.create!(
+  first_name: "Owner",
+  last_name: "Client",
+  email: "owner@vetclinic.com",
+  password: "password123",
+  password_confirmation: "password123",
+  role: :owner
+)
