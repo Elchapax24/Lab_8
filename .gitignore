@@ -29,6 +29,18 @@
 !/tmp/storage/.keep
 
 /public/assets
+/log/*
+!/log/.keep
+
+/tmp/*
+!/tmp/.keep
+
+/storage/*
+!/storage/.keep
+
+/node_modules
+
+.byebug_history
 
 # Ignore key files for decrypting credentials and more.
 /config/*.key
